@@ -1,8 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+)
 
 func main() {
+
+	runtime.GOMAXPROCS(1)
 
 	f("direct")
 
@@ -12,9 +17,7 @@ func main() {
 		fmt.Println(msg)
 	}("going")
 
-	var input string
-	fmt.Scanln(&input)
-	fmt.Println("done")
+	fmt.Scanln()
 }
 
 func f(from string) {
